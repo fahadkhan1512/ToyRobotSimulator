@@ -10,8 +10,8 @@ namespace Toy.Robot.Simulator.TableTop.Implementation
 
         public ToyTable(int width, int depth)
         {
-            this.Width = width;
-            this.Depth = depth;
+            Width = width;
+            Depth = depth;
         }
 
         public bool CanMoveToNewPosition(Position newPosition) => newPosition.Y > -1

@@ -13,8 +13,8 @@ namespace Toy.Robot.Simulator.RobotSystem.Implementation
 
         public RobotControlProcessor(IParameterConvertor parameterConvertor, ICommandStrategy commandStrategy)
         {
-            this._parameterConvertor = parameterConvertor;
-            this._commandStrategy = commandStrategy;
+            _parameterConvertor = parameterConvertor;
+            _commandStrategy = commandStrategy;
         }
 
         public string ExecuteCommand(string inputParameter)

@@ -1,13 +1,13 @@
-﻿namespace Toy.Robot.Simulator.Commands.Implementation
-{
-    using System.Linq;
-    using System.Runtime.InteropServices;
-    using Toy.Robot.Simulator.Commands.Interface;
-    using Toy.Robot.Simulator.Enum;
-    using Toy.Robot.Simulator.InputParamConvertor.Interface;
-    using Toy.Robot.Simulator.Models;
-    using Toy.Robot.Simulator.TableTop.Interface;
+﻿using System.Linq;
+using System.Runtime.InteropServices;
+using Toy.Robot.Simulator.Commands.Interface;
+using Toy.Robot.Simulator.Enum;
+using Toy.Robot.Simulator.InputParamConvertor.Interface;
+using Toy.Robot.Simulator.Models;
+using Toy.Robot.Simulator.TableTop.Interface;
 
+namespace Toy.Robot.Simulator.Commands.Implementation
+{
     public class PlaceCommandExecutor : ICommandExecutor
     {
         private readonly IParameterConvertor parameterConvertor;
@@ -22,11 +22,11 @@
 
         public ToyLocation Operator(ToyLocation currentToyLocation, [Optional] string parameter)
         {
-            var intputParameters = this.parameterConvertor.InputParameterConvertor(parameter);
+            var intputParameters = parameterConvertor.InputParameterConvertor(parameter);
 
-            var location = this.parameterConvertor.LocationConvertor(intputParameters.Last());
+            var location = parameterConvertor.LocationConvertor(intputParameters.Last());
 
-            if (!this.toyTable.CanMoveToNewPosition(location.Position))
+            if (!toyTable.CanMoveToNewPosition(location.Position))
             {
                 return currentToyLocation;
             }

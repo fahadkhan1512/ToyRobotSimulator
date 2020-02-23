@@ -1,7 +1,7 @@
-﻿namespace Toy.Robot.Simulator.Helper
-{
-    using System.Linq;
+﻿using System.Linq;
 
+namespace Toy.Robot.Simulator.Helper
+{
     public static class EnumExtensions
     {
         public static T Next<T>(this T v) where T : struct

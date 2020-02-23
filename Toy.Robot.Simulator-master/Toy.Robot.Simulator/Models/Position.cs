@@ -1,6 +1,4 @@
-﻿using Toy.Robot.Simulator.TableTop.Implementation;
-
-namespace Toy.Robot.Simulator.Models
+﻿namespace Toy.Robot.Simulator.Models
 {
     public class Position
     {
@@ -10,8 +8,8 @@ namespace Toy.Robot.Simulator.Models
 
         public Position(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
     }
 }

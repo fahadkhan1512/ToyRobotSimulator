@@ -1,19 +1,19 @@
 ﻿
+using System;
+using System.Linq;
+using Toy.Robot.Simulator.Enum;
+using Toy.Robot.Simulator.InputParamConvertor.Interface;
+using Toy.Robot.Simulator.Models;
+
 namespace Toy.Robot.Simulator.InputParamConvertor.Implementation
 {
-    using Toy.Robot.Simulator.InputParamConvertor.Interface;
-    using Toy.Robot.Simulator.Enum;
-    using System;
-    using Toy.Robot.Simulator.Models;
-    using System.Linq;
-
     public class ParameterConvertor : IParameterConvertor
     {
         public string[] InputParameterConvertor(string inputParameter)
         {
             if (string.IsNullOrEmpty(inputParameter))
             {
-                throw new ArgumentException($"Input parameter can not be null or empty");
+                throw new ArgumentException("Input parameter can not be null or empty");
             }
 
             var parameers = inputParameter.Split(' ');
@@ -28,10 +28,10 @@ namespace Toy.Robot.Simulator.InputParamConvertor.Implementation
         {
             if (string.IsNullOrWhiteSpace(inputCommand))
             {
-                throw new ArgumentException($"Input command can not be null or empty");
+                throw new ArgumentException("Input command can not be null or empty");
             }
 
-            if (!Enum.TryParse(inputCommand, true, out Command command))
+            if (!System.Enum.TryParse(inputCommand, true, out Command command))
             {
                 throw new ArgumentException("Invalid command. Pass the valid input command, Example: PLACE or MOVE or LEFT or RIGHT or REPORT");
             }
@@ -44,7 +44,7 @@ namespace Toy.Robot.Simulator.InputParamConvertor.Implementation
             var locationParameers = inputLocation.Split(',');
             if (locationParameers.Length != 3)
             {
-                throw new ArgumentException($"Invalid input format, pass the valid input format, Example: PLACE X,Y,F");
+                throw new ArgumentException("Invalid input format, pass the valid input format, Example: PLACE X,Y,F");
             }
 
             var location = inputLocation.Split(',');
@@ -61,7 +61,7 @@ namespace Toy.Robot.Simulator.InputParamConvertor.Implementation
             var position = new Position(x, y);
 
             var directionString = location.Last();
-            if (!Enum.TryParse(directionString, true, out Direction direction))
+            if (!System.Enum.TryParse(directionString, true, out Direction direction))
                 throw new ArgumentException($"Invalid direction {directionString}. Pass the valid directions: NORTH or SOUTH or EAST or WEST");
 
             return new ToyLocation(direction, position);

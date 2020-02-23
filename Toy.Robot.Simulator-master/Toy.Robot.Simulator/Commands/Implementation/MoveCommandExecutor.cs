@@ -1,13 +1,11 @@
-﻿using Toy.Robot.Simulator.TableTop;
+﻿using System.Runtime.InteropServices;
+using Toy.Robot.Simulator.Commands.Interface;
+using Toy.Robot.Simulator.Enum;
+using Toy.Robot.Simulator.Models;
+using Toy.Robot.Simulator.TableTop.Interface;
 
 namespace Toy.Robot.Simulator.Commands.Implementation
 {
-    using System.Runtime.InteropServices;
-    using Toy.Robot.Simulator.Commands.Interface;
-    using Toy.Robot.Simulator.Enum;
-    using Toy.Robot.Simulator.Models;
-    using Toy.Robot.Simulator.TableTop.Interface;
-
     public class MoveCommandExecutor : ICommandExecutor
     {
         private readonly IToyTable toyTable;
@@ -37,7 +35,7 @@ namespace Toy.Robot.Simulator.Commands.Implementation
                     break;
             }
 
-            if (this.toyTable.CanMoveToNewPosition(nextPosition))
+            if (toyTable.CanMoveToNewPosition(nextPosition))
             {
                 currentToyLocation.Position = nextPosition;
             }

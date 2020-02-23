@@ -1,7 +1,7 @@
-﻿namespace Toy.Robot.Simulator.Models
-{
-    using Toy.Robot.Simulator.Enum;
+﻿using Toy.Robot.Simulator.Enum;
 
+namespace Toy.Robot.Simulator.Models
+{
     public class ToyLocation
     {
         public Direction Direction;
@@ -10,8 +10,8 @@
 
         public ToyLocation(Direction direction, Position position)
         {
-            this.Direction = direction;
-            this.Position = position;
+            Direction = direction;
+            Position = position;
         }
     }
 }

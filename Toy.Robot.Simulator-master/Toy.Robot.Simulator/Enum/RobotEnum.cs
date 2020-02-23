@@ -6,7 +6,7 @@
         Move,
         Left,
         Right,
-        Report,
+        Report
     }
 
     public enum Direction
